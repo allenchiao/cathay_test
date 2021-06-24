@@ -28,9 +28,6 @@ jobs:
     - name: start server
       run: |
         python demoapp/server.py &
-    - name: Test with pytest
-      run: |
-        pytest
   test:
     needs: deploy
     runs-on: ubuntu-latest
