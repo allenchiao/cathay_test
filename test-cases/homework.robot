@@ -2,7 +2,7 @@
 Library  SeleniumLibrary
 Resource  keyword_resources.robot
 
-Test Setup  Setup Page
+Test Setup  Setup Page Headless
 Test Teardown  Close Browser
 
 *** Variables ***

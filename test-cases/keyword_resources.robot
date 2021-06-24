@@ -18,6 +18,20 @@ Setup Page
     GO TO  ${test_page_url}
     Verify Login Page Message
 
+Setup Page Headless
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}  add_argument    --headless
+    Call Method    ${chrome_options}  add_argument    --disable-gpu
+    Call Method    ${chrome_options}  add_argument    --no-sandbox
+    Call Method    ${chrome_options}  add_argument    --disable-dev-shm-usage
+
+    ${desired_capabilities}   Evaluate    sys.modules['selenium.webdriver'].DesiredCapabilities.CHROME  sys, selenium.webdriver
+    ${wd}  Create Webdriver  Chrome  chrome_options=${chrome_options}  desired_capabilities=${desired_capabilities}
+    GO TO  ${test_page_url}
+    Verify Login Page Message
+
+
 Verify Login Page Message
     Wait Until Page Contains  ${login_page_message_title}
     Wait Until Page Contains  ${login_page_message_body}
