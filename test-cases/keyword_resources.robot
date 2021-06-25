@@ -5,9 +5,11 @@ ${login_page_title}  Login Page
 ${login_page_message_title}  Login Page
 ${login_page_message_body}  Please input your user name and password and click the login button.
 
+${login_page_title}  Main Page
 ${main_page_message_title}  Welcome Page
 ${main_page_message_body}  Login succeeded. Now you can logout.
 
+${login_page_title}  Error Page
 ${error_page_message_title}  Error Page
 ${error_page_message_body}  Login failed. Invalid user name and/or password.
 
@@ -31,15 +33,17 @@ Setup Page Headless
     GO TO  ${test_page_url}
     Verify Login Page Message
 
-
 Verify Login Page Message
     Wait Until Page Contains  ${login_page_message_title}
     Wait Until Page Contains  ${login_page_message_body}
     Title Should Be  ${login_page_message_title}
+    Capture Page Screenshot  filename=loginPage-case:${TEST NAME}-{index}
 
 Verify Main Page Message
     Wait Until Page Contains  ${main_page_message_title}
     Wait Until Page Contains  ${main_page_message_body}
+    Title Should Be  ${main_page_message_title}
+    Capture Page Screenshot  filename=mainPage-case:${TEST NAME}-{index}
 
 Input Username In Login Page
     [Arguments]  ${input}
@@ -64,3 +68,5 @@ Login with ${username}/${password} will Fail
 Verify Error Message
     Wait Until Page Contains  ${error_page_message_title}
     Wait Until Page Contains  ${error_page_message_body}
+    Title Should Be  ${error_page_message_title}
+    Capture Page Screenshot  filename=errorPage-case:${TEST NAME}-{index}
