@@ -37,13 +37,13 @@ Verify Login Page Message
     Wait Until Page Contains  ${login_page_message_title}
     Wait Until Page Contains  ${login_page_message_body}
     Title Should Be  ${login_page_message_title}
-    Capture Page Screenshot  filename=loginPage-case:${TEST NAME}-{index}
+    Capture Page Screenshot  filename=loginPage-case:${TEST NAME}-{index}.png
 
 Verify Main Page Message
     Wait Until Page Contains  ${main_page_message_title}
     Wait Until Page Contains  ${main_page_message_body}
     Title Should Be  ${main_page_message_title}
-    Capture Page Screenshot  filename=mainPage-case:${TEST NAME}-{index}
+    Capture Page Screenshot  filename=mainPage-case:${TEST NAME}-{index}.png
 
 Input Username In Login Page
     [Arguments]  ${input}
@@ -69,4 +69,4 @@ Verify Error Message
     Wait Until Page Contains  ${error_page_message_title}
     Wait Until Page Contains  ${error_page_message_body}
     Title Should Be  ${error_page_message_title}
-    Capture Page Screenshot  filename=errorPage-case:${TEST NAME}-{index}
+    Capture Page Screenshot  filename=errorPage-case:${TEST NAME}-{index}.png
